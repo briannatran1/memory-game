@@ -8,6 +8,10 @@
   display: inline-block;
 }
 
+.card-item {
+  border-radius: 10%;
+}
+
 h1 {
   text-align: center;
   padding: 30px;
