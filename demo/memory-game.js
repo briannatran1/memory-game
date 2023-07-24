@@ -42,7 +42,10 @@ function createCards(colors) {
   const gameBoard = document.getElementById("game");
 
   for (let color of colors) {
-    // missing code here ...
+    let card = document.createElement('div');
+    card.classList.add(color);
+    card.addEventListener('click', handleCardClick);
+    gameBoard.appendChild(card);
   }
 }
 
