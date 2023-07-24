@@ -43,7 +43,7 @@ function createCards(colors) {
 
   for (let color of colors) {
     let card = document.createElement('div');
-    card.classList.add(color);
+    card.classList.add(color, 'card-item');
     card.addEventListener('click', handleCardClick);
     gameBoard.appendChild(card);
   }
@@ -52,17 +52,51 @@ function createCards(colors) {
 /** Flip a card face-up. */
 
 function flipCard(card) {
-  // ... you need to write this ...
+  card.style.backgroundColor = card.classList[0];
 }
 
 /** Flip a card face-down. */
 
 function unFlipCard(card) {
-  // ... you need to write this ...
+  card.style.backgroundColor = '';
 }
+
+let firstCard = null;
+let secondCard = null;
+let canFlip = true;
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 
 function handleCardClick(evt) {
-  // ... you need to write this ...
+  let currentCard = evt.target;
+  if(!canFlip || currentCard === firstCard){
+    return;
+  }
+  flipCard(currentCard);
+
+  if(!firstCard){
+    firstCard = currentCard;
+  }
+  else{
+    secondCard = currentCard;
+    canFlip = false;
+    setTimeout(checkForMatch, FOUND_MATCH_WAIT_MSECS);
+  }
+}
+
+/** Check if the two flipped cards are a match. */
+
+function checkForMatch(){
+  if(firstCard.classList[0] === secondCard.classList[0]){
+    firstCard.removeEventListener('click', handleCardClick);
+    secondCard.removeEventListener('click', handleCardClick);
+  }
+  else {
+    unFlipCard(firstCard);
+    unFlipCard(secondCard);
+  }
+  //Reset
+  firstCard = null;
+  secondCard = null;
+  canFlip = true;
 }
