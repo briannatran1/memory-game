@@ -2,7 +2,7 @@
 
 #game div {
   border: 1px solid black;
-  width: 100px;
+  width: 80px;
   height: 100px;
   margin: 20px;
   display: inline-block;
@@ -10,6 +10,7 @@
 
 .card-item {
   border-radius: 10%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -18,5 +19,5 @@ h1 {
 }
 
 .container {
-  width: 800px;
+  width: 700px;
 }
