@@ -38,6 +38,11 @@ function shuffle(items) {
  * - a click event listener for each card to handleCardClick
  */
 
+//create new div for card
+//add respective color class to each card
+//add event listener that calls the handleCardFunction when card is clicked
+//append card to gameBoard
+
 function createCards(colors) {
   const gameBoard = document.getElementById("game");
 
@@ -51,11 +56,15 @@ function createCards(colors) {
 
 /** Flip a card face-up. */
 
+//sets card background color to its first class, which is the color
+
 function flipCard(card) {
   card.style.backgroundColor = card.classList[0];
 }
 
 /** Flip a card face-down. */
+
+//removes background color by giving it a value of ''
 
 function unFlipCard(card) {
   card.style.backgroundColor = '';
