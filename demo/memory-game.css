@@ -12,3 +12,7 @@ h1 {
   text-align: center;
   padding: 30px;
 }
+
+.container {
+  width: 800px;
+}
