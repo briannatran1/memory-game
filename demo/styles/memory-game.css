@@ -26,3 +26,8 @@ h1 {
 button {
   margin-left: 20px;
 }
+
+#score-display {
+  margin-left: 20px;
+  font-size: 20px;
+}
