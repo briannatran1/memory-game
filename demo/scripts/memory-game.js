@@ -104,6 +104,8 @@ function checkForMatch(){
     unFlipCard(firstCard);
     unFlipCard(secondCard);
   }
+  score++
+  updateScore();
   //Reset
   firstCard = null;
   secondCard = null;
@@ -119,3 +121,16 @@ restartBtn.addEventListener('click', function(){
   initialColors = shuffle(initialColors);
   createCards(initialColors);
 });
+
+//Start button to start game
+let startBtn = document.getElementById('start');
+startBtn.addEventListener('click', function(){
+
+});
+
+//Score board
+let score = 0;
+function updateScore(){
+  let scoreDisplay = document.getElementById('score-display');
+  scoreDisplay.textContent = `Score: ${score}`;
+}
