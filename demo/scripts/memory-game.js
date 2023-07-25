@@ -120,6 +120,8 @@ restartBtn.addEventListener('click', function(){
   gameBoard.innerHTML = '';
   initialColors = shuffle(initialColors);
   createCards(initialColors);
+  score = 0;
+  updateScore();
 });
 
 //Start button to start game
