@@ -110,8 +110,12 @@ function checkForMatch(){
   canFlip = true;
 }
 
-// Restart button restarts game
+//Restart button to reset game
+let initialColors = colors.slice();
 let restartBtn = document.getElementById('restart');
 restartBtn.addEventListener('click', function(){
-
-})
+  let gameBoard = document.getElementById('game');
+  gameBoard.innerHTML = '';
+  initialColors = shuffle(initialColors);
+  createCards(initialColors);
+});
