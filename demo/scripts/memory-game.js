@@ -109,3 +109,9 @@ function checkForMatch(){
   secondCard = null;
   canFlip = true;
 }
+
+// Restart button restarts game
+let restartBtn = document.getElementById('restart');
+restartBtn.addEventListener('click', function(){
+
+})
