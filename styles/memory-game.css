@@ -1,5 +1,11 @@
 /* you can add to or change this. */
 
+#game {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 #game div {
   border: 1px solid black;
   width: 80px;
@@ -24,11 +30,11 @@ h1 {
 }
 
 button {
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 #score-display {
-  margin-left: 20px;
+  margin-left: 57px;
   font-size: 20px;
   font-family: monospace;
 }
