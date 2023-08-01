@@ -12,9 +12,12 @@ const colors = shuffle(COLORS);
 
 createCards(colors);
 
+let cardsCreated = false;
 let gameStarted = false;
 let lowestScore = localStorage.getItem('lowestScore');
-let cardsCreated = false;
+if(lowestScore === null || isNaN(parseInt(lowestScore))) {
+  lowestScore = Infinity;
+}
 
 /** Shuffle array items in-place and return shuffled array. */
 
@@ -113,6 +116,10 @@ function checkForMatch(){
   firstCard = null;
   secondCard = null;
   canFlip = true;
+  let unmatchedCards = document.querySelectorAll(".card-item:not(.matched)");
+  if(unmatchedCards.length === 0) {
+    updateLowest();
+  }
 }
 
 //Restart button to reset game
@@ -145,11 +152,9 @@ function updateScore(){
   scoreDisplay.textContent = `Score: ${score}`;
 }
 
-function gameFinished(){
-  if(score > 0 && (lowestScore === null || score < lowestScore)){
+function updateLowest(){
+  if(score > 0 && score < lowestScore){
     lowestScore = score;
     localStorage.setItem('lowestScore', lowestScore);
   }
 }
-
-gameFinished();
