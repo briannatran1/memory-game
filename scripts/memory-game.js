@@ -82,6 +82,18 @@ let canFlip = true;
 
 /** Handle clicking on a card: this could be first-card or second-card. */
 
+//declare var for current card that is being clicked
+//if canFlip is false or currentCard is the first card,
+  //function returns and nothing happens further
+//else,
+  //flip apply flipCard function to the currentCard
+//if firstCard is not set,
+  //set currentCard as the firstCard
+//else, firstCard has been set/flipped
+  //set secondCard equal to currentCard
+  //set canFlip to false since we already flipped 2 cards
+  //apply setTimeout function
+
 function handleCardClick(evt) {
   let currentCard = evt.target;
   if(!canFlip || currentCard === firstCard){
