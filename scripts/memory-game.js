@@ -50,7 +50,7 @@ function shuffle(items) {
 //append card to gameBoard
 
 function createCards(colors) {
-  const gameBoard = document.getElementById("game");
+  let gameBoard = document.getElementById("game");
 
   for (let color of colors) {
     let card = document.createElement('div');
@@ -146,12 +146,22 @@ document.getElementById('start').addEventListener('click', function(){
 });
 
 //Score board
+
+//declare score var
+//create function
+  //create scoreDisplay var based on html elem
+  //update score
+
 let score = 0;
 function updateScore(){
   let scoreDisplay = document.getElementById('score-display');
   scoreDisplay.textContent = `Score: ${score}`;
 }
 
+//updating localStorage
+//if score is greater than 0 and less than lowestScore,
+  //set lowestScore to score
+  //set lowetsScore to localStorage using setItem
 function updateLowest(){
   if(score > 0 && score < lowestScore){
     lowestScore = score;
