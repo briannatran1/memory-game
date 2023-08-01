@@ -184,7 +184,6 @@ document.getElementById('start').addEventListener('click', function(){
     cardsCreated = true;
     let cards = document.querySelectorAll('.card-item');
     cards.forEach(card => card.style.visibility = 'visible');
-    createCards(initialColors);
   }
 });
 
