@@ -14,10 +14,7 @@ createCards(colors);
 
 let cardsCreated = false;
 let gameStarted = false;
-let lowestScore = localStorage.getItem('lowestScore');
-if(lowestScore === null || isNaN(parseInt(lowestScore))) {
-  lowestScore = Infinity;
-}
+let lowestScore = localStorage.getItem('lowestScore') || Infinity;
 
 /** Shuffle array items in-place and return shuffled array. */
 
@@ -212,4 +209,5 @@ function updateLowest(){
   }
 }
 
+//after game has finished, apply updateLowest function
 updateLowest();
