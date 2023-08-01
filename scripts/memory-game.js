@@ -170,6 +170,12 @@ restartBtn.addEventListener('click', function(){
 });
 
 //Start button to start game
+
+//retrieve start button from DOM and add event listener based on clicking it
+  //if the game has not started,
+    //set gameStarted to true
+    //create cards based on colors arr
+
 document.getElementById('start').addEventListener('click', function(){
   if(!gameStarted){
     gameStarted = true;
@@ -194,6 +200,7 @@ function updateScore(){
 //if score is greater than 0 and less than lowestScore,
   //set lowestScore to score
   //set lowetsScore to localStorage using setItem
+
 function updateLowest(){
   if(score > 0 && score < lowestScore){
     lowestScore = score;
