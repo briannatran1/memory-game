@@ -12,7 +12,6 @@ const colors = shuffle(COLORS);
 
 createCards(colors);
 
-let cardsCreated = false;
 let gameStarted = false;
 let lowestScore = localStorage.getItem('lowestScore');
 if(lowestScore === null || isNaN(parseInt(lowestScore))) {
@@ -71,6 +70,8 @@ function flipCard(card) {
 /** Flip a card face-down. */
 
 //remove background color by giving it a value of ''
+//set first and second card to null
+//set canFlip to true
 
 function unFlipCard(card) {
   card.style.backgroundColor = '';
@@ -113,6 +114,16 @@ function handleCardClick(evt) {
 
 /** Check if the two flipped cards are a match. */
 
+//if first and second card color are the same,
+  //remove click event listeners for both
+//else,
+  //apply unFlipCard functions to both cards --> not a match
+//increment score
+//apply updateScore function
+//reset cards
+//set canFlip to true
+
+
 function checkForMatch(){
   if(firstCard.classList[0] === secondCard.classList[0]){
     firstCard.removeEventListener('click', handleCardClick);
@@ -135,11 +146,21 @@ function checkForMatch(){
 }
 
 //Restart button to reset game
+
+//retrieve restart button from DOM
+//add event listener to restart btn
+  //get gameBoard var by id
+  //set gameStarted to false
+  //clear gameboard
+  //shuffle colors arr for new cards
+  //create cards based on the shuffle
+  //reset score to 0
+  //apply updateScore function
+
 let initialColors = colors.slice();
 let restartBtn = document.getElementById('restart');
 restartBtn.addEventListener('click', function(){
   gameStarted = false;
-  cardsCreated = false;
   let gameBoard = document.getElementById('game');
   gameBoard.innerHTML = '';
   initialColors = shuffle(initialColors);
@@ -152,7 +173,6 @@ restartBtn.addEventListener('click', function(){
 document.getElementById('start').addEventListener('click', function(){
   if(!gameStarted){
     gameStarted = true;
-    cardsCreated = true;
     createCards(colors);
   }
 });
