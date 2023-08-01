@@ -205,9 +205,6 @@ function updateScore(){
 function updateLowest(){
   if(score > 0 && score < lowestScore){
     lowestScore = score;
-    localStorage.setItem('lowestScore', lowestScore);
+    localStorage.setItem('lowestScore', lowestScore.toString());
   }
 }
-
-//after game has finished, apply updateLowest function
-updateLowest();
