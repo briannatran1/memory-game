@@ -12,6 +12,8 @@ const colors = shuffle(COLORS);
 
 createCards(colors);
 
+let lowestScore = localStorage.getItem('lowestScore') || Infinity;
+
 
 /** Shuffle array items in-place and return shuffled array. */
 
@@ -125,10 +127,14 @@ restartBtn.addEventListener('click', function(){
 });
 
 //Start button to start game
-let startBtn = document.getElementById('start');
-startBtn.addEventListener('click', function(){
-
+let gameStarted = false;
+document.getElementById('start').addEventListener('click', function(){
+  if(!gameStarted){
+    gameStarted = true;
+    createCards(colors);
+  }
 });
+
 
 //Score board
 let score = 0;
