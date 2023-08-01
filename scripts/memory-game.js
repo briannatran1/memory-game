@@ -70,7 +70,7 @@ function flipCard(card) {
 
 /** Flip a card face-down. */
 
-//removes background color by giving it a value of ''
+//remove background color by giving it a value of ''
 
 function unFlipCard(card) {
   card.style.backgroundColor = '';
