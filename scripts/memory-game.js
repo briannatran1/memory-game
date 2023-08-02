@@ -167,6 +167,7 @@ restartBtn.addEventListener('click', function(){
   createCards(initialColors);
   score = 0;
   updateScore();
+  unmatchedCards = initialColors.length;
 });
 
 //Start button to start game
