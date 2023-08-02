@@ -12,7 +12,6 @@ const colors = shuffle(COLORS);
 
 createCards(colors);
 
-let cardsCreated = false;
 let gameStarted = false;
 let lowestScore = localStorage.getItem('lowestScore') || Infinity;
 let unmatchedCards = colors.length;
@@ -160,7 +159,6 @@ let initialColors = colors.slice();
 let restartBtn = document.getElementById('restart');
 restartBtn.addEventListener('click', function(){
   gameStarted = false;
-  cardsCreated = false;
   let gameBoard = document.getElementById('game');
   gameBoard.innerHTML = '';
   initialColors = shuffle(initialColors);
@@ -180,7 +178,6 @@ restartBtn.addEventListener('click', function(){
 document.getElementById('start').addEventListener('click', function(){
   if(!gameStarted){
     gameStarted = true;
-    cardsCreated = true;
     let cards = document.querySelectorAll('.card-item');
     cards.forEach(card => card.style.visibility = 'visible');
   }
