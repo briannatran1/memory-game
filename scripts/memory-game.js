@@ -15,6 +15,7 @@ createCards(colors);
 let cardsCreated = false;
 let gameStarted = false;
 let lowestScore = localStorage.getItem('lowestScore') || Infinity;
+let unmatchedCards = colors.length;
 
 /** Shuffle array items in-place and return shuffled array. */
 
@@ -126,6 +127,7 @@ function checkForMatch(){
   if(firstCard.classList[0] === secondCard.classList[0]){
     firstCard.removeEventListener('click', handleCardClick);
     secondCard.removeEventListener('click', handleCardClick);
+    unmatchedCards -= 2;
   }
   else {
     unFlipCard(firstCard);
@@ -137,8 +139,7 @@ function checkForMatch(){
   firstCard = null;
   secondCard = null;
   canFlip = true;
-  let unmatchedCards = document.querySelectorAll(".card-item:not(.matched)");
-  if(unmatchedCards.length === 0) {
+  if(unmatchedCards === 0){
     updateLowest();
   }
 }
@@ -203,8 +204,8 @@ function updateScore(){
   //set lowetsScore to localStorage using setItem
 
 function updateLowest(){
-  if(score > 0 && score < lowestScore){
+  if(score < lowestScore){
     lowestScore = score;
-    localStorage.setItem('lowestScore', lowestScore.toString());
+    localStorage.setItem('lowestScore', lowestScore);
   }
 }
