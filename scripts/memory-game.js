@@ -120,7 +120,8 @@ function handleCardClick(evt) {
 //apply updateScore function
 //reset cards
 //set canFlip to true
-
+//if there are no unmatched cards left,
+  //apply updateLowest function
 
 function checkForMatch(){
   if(firstCard.classList[0] === secondCard.classList[0]){
