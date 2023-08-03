@@ -53,3 +53,8 @@ body {
   background-attachment: fixed;
   background-position: center center;
 }
+
+.card {
+  margin-bottom: 20px;
+  background-color: lavender;
+}
